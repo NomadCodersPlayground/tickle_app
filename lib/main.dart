@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:tech_blog_search_app/presentation/search/search_view.dart';
+import 'package:tech_blog_search_app/presentation/search/search_view_model.dart';
 import 'package:tech_blog_search_app/ui/ui_theme.dart';
 
 void main() {
@@ -13,7 +15,10 @@ void main() {
       builder: (_, child) => MaterialApp(
         theme: UITheme.lightModeTheme,
         darkTheme: UITheme.dartModeTheme,
-        home: SearchView(),
+        home: ChangeNotifierProvider(
+          create: (_) => SearchViewModel(),
+          child: SearchView(),
+        ),
       ),
     )
   );

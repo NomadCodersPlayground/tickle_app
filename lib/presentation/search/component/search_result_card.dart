@@ -33,7 +33,7 @@ class SearchResultCard extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(width: 8.w),
+            SizedBox(width: 12.w),
             _thumbnail(imageUrl),
           ],
         ),
