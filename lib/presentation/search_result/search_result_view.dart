@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-import 'package:tech_blog_search_app/presentation/search/component/search_button.dart';
-import 'package:tech_blog_search_app/presentation/search/component/search_result_card.dart';
-import 'package:tech_blog_search_app/presentation/search/component/search_text_field.dart';
-import 'package:tech_blog_search_app/presentation/search/search_view_model.dart';
+import 'package:tech_blog_search_app/presentation/main/component/search_button.dart';
+import 'package:tech_blog_search_app/presentation/search_result/component/search_result_card.dart';
+import 'package:tech_blog_search_app/presentation/search_result/component/search_text_field.dart';
+import 'package:tech_blog_search_app/presentation/search_result/component/search_view_app_bar.dart';
+import 'package:tech_blog_search_app/presentation/search_result/search_result_view_model.dart';
 
-class SearchView extends StatelessWidget {
-  SearchView({super.key});
+class SearchResultView extends StatelessWidget {
+  SearchResultView({super.key});
 
   final TextEditingController _searchTextController = TextEditingController();
 
@@ -17,10 +17,8 @@ class SearchView extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            toolbarHeight: 56.w,
-            centerTitle: false,
-            title: Consumer<SearchViewModel>(
+          SearchViewAppBar(
+            title: Consumer<SearchResultViewModel>(
               builder: (_, viewModel, __) => AnimatedSwitcher(
                 duration: const Duration(milliseconds: 500),
                 child: viewModel.showTextField
@@ -28,11 +26,6 @@ class SearchView extends StatelessWidget {
                     : Container(),
               ),
             ),
-            actions: [
-              SearchButton(
-                onTap: context.read<SearchViewModel>().switchShowTextField,
-              ),
-            ],
           ),
           SliverSafeArea(
             top: false,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SearchViewModel extends ChangeNotifier {
+class SearchResultViewModel extends ChangeNotifier {
   bool _showTextField = false;
 
   bool get showTextField => _showTextField;
