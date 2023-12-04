@@ -19,7 +19,7 @@ class _ArticleApi implements ArticleApi {
   String? baseUrl;
 
   @override
-  Future<ArticleRetrieveResponseModel> reterieve(
+  Future<ArticleRetrieveResponseModel> retrieve(
       {required ArticleRequestParamsModel params}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

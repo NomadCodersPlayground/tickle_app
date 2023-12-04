@@ -12,6 +12,6 @@ class ArticleRepositoryImpl implements ArticleRepository {
   Future<ArticleRetrieveResponseModel> retrieve({
     required ArticleRequestParamsModel params,
   }) {
-    return api.reterieve(params: params);
+    return api.retrieve(params: params);
   }
 }

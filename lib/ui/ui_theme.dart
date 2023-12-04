@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_blog_search_app/ui/color_schemes.g.dart';
 import 'package:tech_blog_search_app/ui/fonts.gen.dart';
 
@@ -7,11 +8,17 @@ class UITheme {
     colorScheme: lightColorScheme,
     useMaterial3: true,
     fontFamily: FontFamily.pretendard,
+    appBarTheme: AppBarTheme(
+      toolbarHeight: 56.w,
+    ),
   );
 
-  static final dartModeTheme = ThemeData(
+  static final darkModeTheme = ThemeData(
     colorScheme: darkColorScheme,
     useMaterial3: true,
     fontFamily: FontFamily.pretendard,
+    appBarTheme: AppBarTheme(
+      toolbarHeight: 56.w,
+    ),
   );
 }

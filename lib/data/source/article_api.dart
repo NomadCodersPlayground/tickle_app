@@ -10,7 +10,7 @@ abstract class ArticleApi {
   factory ArticleApi(Dio dio, {required String baseUrl}) = _ArticleApi;
 
   @GET("/api/v1/articles")
-  Future<ArticleRetrieveResponseModel> reterieve({
+  Future<ArticleRetrieveResponseModel> retrieve({
     @Queries() required ArticleRequestParamsModel params,
   });
 }

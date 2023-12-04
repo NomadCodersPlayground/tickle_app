@@ -20,7 +20,7 @@ class BannerHorizontalList extends StatelessWidget {
         itemCount: itemCount,
         itemBuilder: (_, __, ___) => _bannerItem(),
         options: CarouselOptions(
-          aspectRatio: 343 / 188,
+          aspectRatio: 343 / 144,
           autoPlay: true,
           viewportFraction: 1.0,
         ),
