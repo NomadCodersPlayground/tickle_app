@@ -12,7 +12,9 @@ _$ArticleRequestParamsModelImpl _$$ArticleRequestParamsModelImplFromJson(
       page: json['page'] as int?,
       size: json['size'] as int?,
       keywords: json['keywords'] as String?,
-      sortOptions: $enumDecode(_$SortOptionEnumMap, json['sortOptions']),
+      sortOptions:
+          $enumDecodeNullable(_$SortOptionEnumMap, json['sortOptions']) ??
+              SortOption.MOST_VIEWS,
     );
 
 Map<String, dynamic> _$$ArticleRequestParamsModelImplToJson(

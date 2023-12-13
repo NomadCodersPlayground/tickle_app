@@ -136,7 +136,10 @@ class __$$ArticleRequestParamsModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArticleRequestParamsModelImpl implements _ArticleRequestParamsModel {
   _$ArticleRequestParamsModelImpl(
-      {this.page, this.size, this.keywords, required this.sortOptions});
+      {this.page,
+      this.size,
+      this.keywords,
+      this.sortOptions = SortOption.MOST_VIEWS});
 
   factory _$ArticleRequestParamsModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ArticleRequestParamsModelImplFromJson(json);
@@ -148,6 +151,7 @@ class _$ArticleRequestParamsModelImpl implements _ArticleRequestParamsModel {
   @override
   final String? keywords;
   @override
+  @JsonKey()
   final SortOption sortOptions;
 
   @override
@@ -193,7 +197,7 @@ abstract class _ArticleRequestParamsModel implements ArticleRequestParamsModel {
       {final int? page,
       final int? size,
       final String? keywords,
-      required final SortOption sortOptions}) = _$ArticleRequestParamsModelImpl;
+      final SortOption sortOptions}) = _$ArticleRequestParamsModelImpl;
 
   factory _ArticleRequestParamsModel.fromJson(Map<String, dynamic> json) =
       _$ArticleRequestParamsModelImpl.fromJson;
