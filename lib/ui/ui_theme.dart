@@ -6,7 +6,6 @@ import 'package:tech_blog_search_app/ui/fonts.gen.dart';
 class UITheme {
   static final lightModeTheme = ThemeData(
     colorScheme: lightColorScheme,
-    useMaterial3: true,
     fontFamily: FontFamily.pretendard,
     appBarTheme: AppBarTheme(
       toolbarHeight: 56.w,
@@ -15,7 +14,6 @@ class UITheme {
 
   static final darkModeTheme = ThemeData(
     colorScheme: darkColorScheme,
-    useMaterial3: true,
     fontFamily: FontFamily.pretendard,
     appBarTheme: AppBarTheme(
       toolbarHeight: 56.w,

@@ -22,13 +22,10 @@ ArticleContentModel _$ArticleContentModelFromJson(Map<String, dynamic> json) {
 mixin _$ArticleContentModel {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  String get articleContents => throw _privateConstructorUsedError;
-  List<String> get tags => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  int get views => throw _privateConstructorUsedError;
-  int get todayViews => throw _privateConstructorUsedError;
-  int get weeklyViews => throw _privateConstructorUsedError;
-  int get monthlyViews => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get uri => throw _privateConstructorUsedError;
+  String? get mainImageUrl => throw _privateConstructorUsedError;
+  DateTime get createdDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,13 +42,10 @@ abstract class $ArticleContentModelCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      String articleContents,
-      List<String> tags,
-      DateTime createdAt,
-      int views,
-      int todayViews,
-      int weeklyViews,
-      int monthlyViews});
+      String description,
+      String uri,
+      String? mainImageUrl,
+      DateTime createdDate});
 }
 
 /// @nodoc
@@ -69,13 +63,10 @@ class _$ArticleContentModelCopyWithImpl<$Res, $Val extends ArticleContentModel>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? articleContents = null,
-    Object? tags = null,
-    Object? createdAt = null,
-    Object? views = null,
-    Object? todayViews = null,
-    Object? weeklyViews = null,
-    Object? monthlyViews = null,
+    Object? description = null,
+    Object? uri = null,
+    Object? mainImageUrl = freezed,
+    Object? createdDate = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -86,34 +77,22 @@ class _$ArticleContentModelCopyWithImpl<$Res, $Val extends ArticleContentModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      articleContents: null == articleContents
-          ? _value.articleContents
-          : articleContents // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String,
+      mainImageUrl: freezed == mainImageUrl
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdDate: null == createdDate
+          ? _value.createdDate
+          : createdDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      views: null == views
-          ? _value.views
-          : views // ignore: cast_nullable_to_non_nullable
-              as int,
-      todayViews: null == todayViews
-          ? _value.todayViews
-          : todayViews // ignore: cast_nullable_to_non_nullable
-              as int,
-      weeklyViews: null == weeklyViews
-          ? _value.weeklyViews
-          : weeklyViews // ignore: cast_nullable_to_non_nullable
-              as int,
-      monthlyViews: null == monthlyViews
-          ? _value.monthlyViews
-          : monthlyViews // ignore: cast_nullable_to_non_nullable
-              as int,
     ) as $Val);
   }
 }
@@ -130,13 +109,10 @@ abstract class _$$SearchResultContentModelImplCopyWith<$Res>
   $Res call(
       {int id,
       String title,
-      String articleContents,
-      List<String> tags,
-      DateTime createdAt,
-      int views,
-      int todayViews,
-      int weeklyViews,
-      int monthlyViews});
+      String description,
+      String uri,
+      String? mainImageUrl,
+      DateTime createdDate});
 }
 
 /// @nodoc
@@ -154,13 +130,10 @@ class __$$SearchResultContentModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? articleContents = null,
-    Object? tags = null,
-    Object? createdAt = null,
-    Object? views = null,
-    Object? todayViews = null,
-    Object? weeklyViews = null,
-    Object? monthlyViews = null,
+    Object? description = null,
+    Object? uri = null,
+    Object? mainImageUrl = freezed,
+    Object? createdDate = null,
   }) {
     return _then(_$SearchResultContentModelImpl(
       id: null == id
@@ -171,34 +144,22 @@ class __$$SearchResultContentModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      articleContents: null == articleContents
-          ? _value.articleContents
-          : articleContents // ignore: cast_nullable_to_non_nullable
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
-      tags: null == tags
-          ? _value._tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as String,
+      mainImageUrl: freezed == mainImageUrl
+          ? _value.mainImageUrl
+          : mainImageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdDate: null == createdDate
+          ? _value.createdDate
+          : createdDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      views: null == views
-          ? _value.views
-          : views // ignore: cast_nullable_to_non_nullable
-              as int,
-      todayViews: null == todayViews
-          ? _value.todayViews
-          : todayViews // ignore: cast_nullable_to_non_nullable
-              as int,
-      weeklyViews: null == weeklyViews
-          ? _value.weeklyViews
-          : weeklyViews // ignore: cast_nullable_to_non_nullable
-              as int,
-      monthlyViews: null == monthlyViews
-          ? _value.monthlyViews
-          : monthlyViews // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -209,14 +170,10 @@ class _$SearchResultContentModelImpl implements _SearchResultContentModel {
   const _$SearchResultContentModelImpl(
       {required this.id,
       required this.title,
-      required this.articleContents,
-      required final List<String> tags,
-      required this.createdAt,
-      required this.views,
-      required this.todayViews,
-      required this.weeklyViews,
-      required this.monthlyViews})
-      : _tags = tags;
+      required this.description,
+      required this.uri,
+      this.mainImageUrl,
+      required this.createdDate});
 
   factory _$SearchResultContentModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SearchResultContentModelImplFromJson(json);
@@ -226,29 +183,17 @@ class _$SearchResultContentModelImpl implements _SearchResultContentModel {
   @override
   final String title;
   @override
-  final String articleContents;
-  final List<String> _tags;
+  final String description;
   @override
-  List<String> get tags {
-    if (_tags is EqualUnmodifiableListView) return _tags;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tags);
-  }
-
+  final String uri;
   @override
-  final DateTime createdAt;
+  final String? mainImageUrl;
   @override
-  final int views;
-  @override
-  final int todayViews;
-  @override
-  final int weeklyViews;
-  @override
-  final int monthlyViews;
+  final DateTime createdDate;
 
   @override
   String toString() {
-    return 'ArticleContentModel(id: $id, title: $title, articleContents: $articleContents, tags: $tags, createdAt: $createdAt, views: $views, todayViews: $todayViews, weeklyViews: $weeklyViews, monthlyViews: $monthlyViews)';
+    return 'ArticleContentModel(id: $id, title: $title, description: $description, uri: $uri, mainImageUrl: $mainImageUrl, createdDate: $createdDate)';
   }
 
   @override
@@ -258,33 +203,19 @@ class _$SearchResultContentModelImpl implements _SearchResultContentModel {
             other is _$SearchResultContentModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.articleContents, articleContents) ||
-                other.articleContents == articleContents) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.views, views) || other.views == views) &&
-            (identical(other.todayViews, todayViews) ||
-                other.todayViews == todayViews) &&
-            (identical(other.weeklyViews, weeklyViews) ||
-                other.weeklyViews == weeklyViews) &&
-            (identical(other.monthlyViews, monthlyViews) ||
-                other.monthlyViews == monthlyViews));
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.mainImageUrl, mainImageUrl) ||
+                other.mainImageUrl == mainImageUrl) &&
+            (identical(other.createdDate, createdDate) ||
+                other.createdDate == createdDate));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      articleContents,
-      const DeepCollectionEquality().hash(_tags),
-      createdAt,
-      views,
-      todayViews,
-      weeklyViews,
-      monthlyViews);
+      runtimeType, id, title, description, uri, mainImageUrl, createdDate);
 
   @JsonKey(ignore: true)
   @override
@@ -305,13 +236,10 @@ abstract class _SearchResultContentModel implements ArticleContentModel {
   const factory _SearchResultContentModel(
       {required final int id,
       required final String title,
-      required final String articleContents,
-      required final List<String> tags,
-      required final DateTime createdAt,
-      required final int views,
-      required final int todayViews,
-      required final int weeklyViews,
-      required final int monthlyViews}) = _$SearchResultContentModelImpl;
+      required final String description,
+      required final String uri,
+      final String? mainImageUrl,
+      required final DateTime createdDate}) = _$SearchResultContentModelImpl;
 
   factory _SearchResultContentModel.fromJson(Map<String, dynamic> json) =
       _$SearchResultContentModelImpl.fromJson;
@@ -321,19 +249,13 @@ abstract class _SearchResultContentModel implements ArticleContentModel {
   @override
   String get title;
   @override
-  String get articleContents;
+  String get description;
   @override
-  List<String> get tags;
+  String get uri;
   @override
-  DateTime get createdAt;
+  String? get mainImageUrl;
   @override
-  int get views;
-  @override
-  int get todayViews;
-  @override
-  int get weeklyViews;
-  @override
-  int get monthlyViews;
+  DateTime get createdDate;
   @override
   @JsonKey(ignore: true)
   _$$SearchResultContentModelImplCopyWith<_$SearchResultContentModelImpl>

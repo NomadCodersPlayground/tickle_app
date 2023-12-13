@@ -1,17 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tech_blog_search_app/utils/sort_option.dart';
 
 part 'article_request_params_model.freezed.dart';
 
 part 'article_request_params_model.g.dart';
-
-enum SortOptions {
-  RECENT,
-  VIEWS,
-  TODAY_VIEWS,
-  WEEKLY_VIEWS,
-  MONTHLY_VIEWS,
-}
 
 @freezed
 class ArticleRequestParamsModel with _$ArticleRequestParamsModel {
@@ -19,7 +12,7 @@ class ArticleRequestParamsModel with _$ArticleRequestParamsModel {
     int? page,
     int? size,
     String? keywords,
-    required SortOptions sortOptions,
+    required SortOption sortOptions,
   }) = _ArticleRequestParamsModel;
 
   factory ArticleRequestParamsModel.fromJson(Map<String, dynamic> json) =>

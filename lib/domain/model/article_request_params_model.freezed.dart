@@ -24,7 +24,7 @@ mixin _$ArticleRequestParamsModel {
   int? get page => throw _privateConstructorUsedError;
   int? get size => throw _privateConstructorUsedError;
   String? get keywords => throw _privateConstructorUsedError;
-  SortOptions get sortOptions => throw _privateConstructorUsedError;
+  SortOption get sortOptions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $ArticleRequestParamsModelCopyWith<$Res> {
           $Res Function(ArticleRequestParamsModel) then) =
       _$ArticleRequestParamsModelCopyWithImpl<$Res, ArticleRequestParamsModel>;
   @useResult
-  $Res call({int? page, int? size, String? keywords, SortOptions sortOptions});
+  $Res call({int? page, int? size, String? keywords, SortOption sortOptions});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$ArticleRequestParamsModelCopyWithImpl<$Res,
       sortOptions: null == sortOptions
           ? _value.sortOptions
           : sortOptions // ignore: cast_nullable_to_non_nullable
-              as SortOptions,
+              as SortOption,
     ) as $Val);
   }
 }
@@ -90,7 +90,7 @@ abstract class _$$ArticleRequestParamsModelImplCopyWith<$Res>
       __$$ArticleRequestParamsModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? page, int? size, String? keywords, SortOptions sortOptions});
+  $Res call({int? page, int? size, String? keywords, SortOption sortOptions});
 }
 
 /// @nodoc
@@ -127,7 +127,7 @@ class __$$ArticleRequestParamsModelImplCopyWithImpl<$Res>
       sortOptions: null == sortOptions
           ? _value.sortOptions
           : sortOptions // ignore: cast_nullable_to_non_nullable
-              as SortOptions,
+              as SortOption,
     ));
   }
 }
@@ -148,7 +148,7 @@ class _$ArticleRequestParamsModelImpl implements _ArticleRequestParamsModel {
   @override
   final String? keywords;
   @override
-  final SortOptions sortOptions;
+  final SortOption sortOptions;
 
   @override
   String toString() {
@@ -190,11 +190,10 @@ class _$ArticleRequestParamsModelImpl implements _ArticleRequestParamsModel {
 
 abstract class _ArticleRequestParamsModel implements ArticleRequestParamsModel {
   factory _ArticleRequestParamsModel(
-          {final int? page,
-          final int? size,
-          final String? keywords,
-          required final SortOptions sortOptions}) =
-      _$ArticleRequestParamsModelImpl;
+      {final int? page,
+      final int? size,
+      final String? keywords,
+      required final SortOption sortOptions}) = _$ArticleRequestParamsModelImpl;
 
   factory _ArticleRequestParamsModel.fromJson(Map<String, dynamic> json) =
       _$ArticleRequestParamsModelImpl.fromJson;
@@ -206,7 +205,7 @@ abstract class _ArticleRequestParamsModel implements ArticleRequestParamsModel {
   @override
   String? get keywords;
   @override
-  SortOptions get sortOptions;
+  SortOption get sortOptions;
   @override
   @JsonKey(ignore: true)
   _$$ArticleRequestParamsModelImplCopyWith<_$ArticleRequestParamsModelImpl>

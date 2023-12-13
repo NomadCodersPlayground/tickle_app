@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:tech_blog_search_app/data/repository/article_repository_impl.dart';
 import 'package:tech_blog_search_app/data/source/article_api.dart';
 import 'package:tech_blog_search_app/presentation/main/main_view_model.dart';
-import 'package:tech_blog_search_app/router/router_config.dart';
 import 'package:tech_blog_search_app/ui/ui_theme.dart';
+import 'package:tech_blog_search_app/utils/router/router_config.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

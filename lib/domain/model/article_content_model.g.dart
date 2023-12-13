@@ -11,13 +11,10 @@ _$SearchResultContentModelImpl _$$SearchResultContentModelImplFromJson(
     _$SearchResultContentModelImpl(
       id: json['id'] as int,
       title: json['title'] as String,
-      articleContents: json['articleContents'] as String,
-      tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      views: json['views'] as int,
-      todayViews: json['todayViews'] as int,
-      weeklyViews: json['weeklyViews'] as int,
-      monthlyViews: json['monthlyViews'] as int,
+      description: json['description'] as String,
+      uri: json['uri'] as String,
+      mainImageUrl: json['mainImageUrl'] as String?,
+      createdDate: DateTime.parse(json['createdDate'] as String),
     );
 
 Map<String, dynamic> _$$SearchResultContentModelImplToJson(
@@ -25,11 +22,8 @@ Map<String, dynamic> _$$SearchResultContentModelImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
-      'articleContents': instance.articleContents,
-      'tags': instance.tags,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'views': instance.views,
-      'todayViews': instance.todayViews,
-      'weeklyViews': instance.weeklyViews,
-      'monthlyViews': instance.monthlyViews,
+      'description': instance.description,
+      'uri': instance.uri,
+      'mainImageUrl': instance.mainImageUrl,
+      'createdDate': instance.createdDate.toIso8601String(),
     };

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tech_blog_search_app/utils/sort_option.dart';
 import 'package:tech_blog_search_app/domain/model/article_request_params_model.dart';
 import 'package:tech_blog_search_app/domain/model/article_retrieve_response_model.dart';
 import 'package:tech_blog_search_app/domain/repository/article_repository.dart';
@@ -27,16 +28,16 @@ class MainViewModel extends ChangeNotifier {
       final [recent, today, weekly, monthly] = await Future.wait(
         [
           repository.retrieve(
-            params: ArticleRequestParamsModel(sortOptions: SortOptions.RECENT),
+            params: ArticleRequestParamsModel(sortOptions: SortOption.RECENT),
           ),
           repository.retrieve(
-            params: ArticleRequestParamsModel(sortOptions: SortOptions.TODAY_VIEWS),
+            params: ArticleRequestParamsModel(sortOptions: SortOption.TODAY_VIEWS),
           ),
           repository.retrieve(
-            params: ArticleRequestParamsModel(sortOptions: SortOptions.WEEKLY_VIEWS),
+            params: ArticleRequestParamsModel(sortOptions: SortOption.WEEKLY_VIEWS),
           ),
           repository.retrieve(
-            params: ArticleRequestParamsModel(sortOptions: SortOptions.MONTHLY_VIEWS),
+            params: ArticleRequestParamsModel(sortOptions: SortOption.MONTHLY_VIEWS),
           ),
         ],
       );

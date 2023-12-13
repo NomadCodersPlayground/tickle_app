@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SearchResultCard extends StatelessWidget {
+class ArticleListCard extends StatelessWidget {
   final String title;
   final String content;
-  final String imageUrl;
+  final String? imageUrl;
 
-  const SearchResultCard({
+  const ArticleListCard({
     super.key,
     required this.title,
     required this.content,
@@ -59,16 +59,19 @@ class SearchResultCard extends StatelessWidget {
       style: TextStyle(
         fontSize: 12.sp,
       ),
+      maxLines: 3,
       overflow: TextOverflow.ellipsis,
     );
   }
 
-  Widget _thumbnail(String imageUrl) {
-    return Image.network(
-      imageUrl,
-      fit: BoxFit.cover,
-      width: 56.w,
-      height: 56.w,
-    );
+  Widget _thumbnail(String? imageUrl) {
+    return imageUrl != null
+        ? Image.network(
+            imageUrl,
+            fit: BoxFit.cover,
+            width: 56.w,
+            height: 56.w,
+          )
+        : Container();
   }
 }

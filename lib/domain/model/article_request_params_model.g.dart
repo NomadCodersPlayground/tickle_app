@@ -12,7 +12,7 @@ _$ArticleRequestParamsModelImpl _$$ArticleRequestParamsModelImplFromJson(
       page: json['page'] as int?,
       size: json['size'] as int?,
       keywords: json['keywords'] as String?,
-      sortOptions: $enumDecode(_$SortOptionsEnumMap, json['sortOptions']),
+      sortOptions: $enumDecode(_$SortOptionEnumMap, json['sortOptions']),
     );
 
 Map<String, dynamic> _$$ArticleRequestParamsModelImplToJson(
@@ -21,13 +21,13 @@ Map<String, dynamic> _$$ArticleRequestParamsModelImplToJson(
       'page': instance.page,
       'size': instance.size,
       'keywords': instance.keywords,
-      'sortOptions': _$SortOptionsEnumMap[instance.sortOptions]!,
+      'sortOptions': _$SortOptionEnumMap[instance.sortOptions]!,
     };
 
-const _$SortOptionsEnumMap = {
-  SortOptions.RECENT: 'RECENT',
-  SortOptions.VIEWS: 'VIEWS',
-  SortOptions.TODAY_VIEWS: 'TODAY_VIEWS',
-  SortOptions.WEEKLY_VIEWS: 'WEEKLY_VIEWS',
-  SortOptions.MONTHLY_VIEWS: 'MONTHLY_VIEWS',
+const _$SortOptionEnumMap = {
+  SortOption.RECENT: 'RECENT',
+  SortOption.MOST_VIEWS: 'MOST_VIEWS',
+  SortOption.TODAY_VIEWS: 'TODAY_VIEWS',
+  SortOption.WEEKLY_VIEWS: 'WEEKLY_VIEWS',
+  SortOption.MONTHLY_VIEWS: 'MONTHLY_VIEWS',
 };

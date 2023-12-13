@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchTextField extends StatelessWidget {
-  final TextEditingController controller;
+  final TextEditingController? controller;
 
   const SearchTextField({
+    this.controller,
     super.key,
-    required this.controller,
   });
 
   @override

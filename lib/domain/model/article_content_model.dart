@@ -9,13 +9,10 @@ class ArticleContentModel with _$ArticleContentModel {
   const factory ArticleContentModel({
     required int id,
     required String title,
-    required String articleContents,
-    required List<String> tags,
-    required DateTime createdAt,
-    required int views,
-    required int todayViews,
-    required int weeklyViews,
-    required int monthlyViews,
+    required String description,
+    required String uri,
+    String? mainImageUrl,
+    required DateTime createdDate,
   }) = _SearchResultContentModel;
 
   factory ArticleContentModel.fromJson(Map<String, dynamic> json) =>
