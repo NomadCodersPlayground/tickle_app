@@ -9,7 +9,7 @@ part 'article_list_view_params.g.dart';
 @freezed
 class ArticleListViewParams with _$ArticleListViewParams {
 	factory ArticleListViewParams({
-    required SortOption sortOption,
+    @Default(SortOption.MOST_VIEWS) SortOption sortOption,
     @Default([]) List<ArticleContentModel> articles,
 }) = _ArticleListViewParams;
 

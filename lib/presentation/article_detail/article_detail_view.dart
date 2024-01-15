@@ -13,6 +13,8 @@ class ArticleDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel =  context.read<ArticleDetailViewModel>();
     return Scaffold(
+      appBar: AppBar(
+      ),
       body: SafeArea(
         child: InAppWebView(
           initialUrlRequest: URLRequest(url: Uri.parse(viewModel.article.uri)),

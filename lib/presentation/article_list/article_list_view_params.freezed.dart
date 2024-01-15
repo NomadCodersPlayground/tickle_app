@@ -113,7 +113,7 @@ class __$$ArticleListViewParamsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ArticleListViewParamsImpl implements _ArticleListViewParams {
   _$ArticleListViewParamsImpl(
-      {required this.sortOption,
+      {this.sortOption = SortOption.MOST_VIEWS,
       final List<ArticleContentModel> articles = const []})
       : _articles = articles;
 
@@ -121,6 +121,7 @@ class _$ArticleListViewParamsImpl implements _ArticleListViewParams {
       _$$ArticleListViewParamsImplFromJson(json);
 
   @override
+  @JsonKey()
   final SortOption sortOption;
   final List<ArticleContentModel> _articles;
   @override
@@ -168,7 +169,7 @@ class _$ArticleListViewParamsImpl implements _ArticleListViewParams {
 
 abstract class _ArticleListViewParams implements ArticleListViewParams {
   factory _ArticleListViewParams(
-      {required final SortOption sortOption,
+      {final SortOption sortOption,
       final List<ArticleContentModel> articles}) = _$ArticleListViewParamsImpl;
 
   factory _ArticleListViewParams.fromJson(Map<String, dynamic> json) =

@@ -9,7 +9,9 @@ part of 'article_list_view_params.dart';
 _$ArticleListViewParamsImpl _$$ArticleListViewParamsImplFromJson(
         Map<String, dynamic> json) =>
     _$ArticleListViewParamsImpl(
-      sortOption: $enumDecode(_$SortOptionEnumMap, json['sortOption']),
+      sortOption:
+          $enumDecodeNullable(_$SortOptionEnumMap, json['sortOption']) ??
+              SortOption.MOST_VIEWS,
       articles: (json['articles'] as List<dynamic>?)
               ?.map((e) =>
                   ArticleContentModel.fromJson(e as Map<String, dynamic>))

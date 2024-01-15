@@ -12,7 +12,7 @@ class ArticleRequestParamsModel with _$ArticleRequestParamsModel {
     int? page,
     int? size,
     String? keywords,
-    required SortOption sortOptions,
+    @Default(SortOption.MOST_VIEWS) SortOption sortOptions,
   }) = _ArticleRequestParamsModel;
 
   factory ArticleRequestParamsModel.fromJson(Map<String, dynamic> json) =>

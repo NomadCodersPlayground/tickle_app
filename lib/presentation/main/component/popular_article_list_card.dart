@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:tech_blog_search_app/domain/model/article_content_model.dart';
-import 'package:tech_blog_search_app/presentation/article_detail/article_detail_view.dart';
 
 class PopularArticleListCard extends StatelessWidget {
   final ArticleContentModel article;
+  final void Function() onTap;
 
   const PopularArticleListCard({
     super.key,
     required this.article,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push(
-        ArticleDetailView.path,
-        extra: article,
-      ),
+      onTap: onTap,
       child: AspectRatio(
         aspectRatio: 118 / 172,
         child: Column(
