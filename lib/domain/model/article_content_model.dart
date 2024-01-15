@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'article_content_model.freezed.dart';

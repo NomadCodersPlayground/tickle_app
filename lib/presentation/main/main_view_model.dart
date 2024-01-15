@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 import 'package:tech_blog_search_app/utils/sort_option.dart';
 import 'package:tech_blog_search_app/domain/model/article_request_params_model.dart';
 import 'package:tech_blog_search_app/domain/model/article_retrieve_response_model.dart';
 import 'package:tech_blog_search_app/domain/repository/article_repository.dart';
-import 'package:tech_blog_search_app/utils/fetch_state.dart';
+import 'package:tech_blog_search_app/utils/fetch/fetch_state.dart';
 
+@singleton
 class MainViewModel extends ChangeNotifier {
   final ArticleRepository repository;
 
