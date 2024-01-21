@@ -17,6 +17,7 @@ _$ArticleListViewParamsImpl _$$ArticleListViewParamsImplFromJson(
                   ArticleContentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      searchKeyword: json['searchKeyword'] as String?,
     );
 
 Map<String, dynamic> _$$ArticleListViewParamsImplToJson(
@@ -24,6 +25,7 @@ Map<String, dynamic> _$$ArticleListViewParamsImplToJson(
     <String, dynamic>{
       'sortOption': _$SortOptionEnumMap[instance.sortOption]!,
       'articles': instance.articles,
+      'searchKeyword': instance.searchKeyword,
     };
 
 const _$SortOptionEnumMap = {

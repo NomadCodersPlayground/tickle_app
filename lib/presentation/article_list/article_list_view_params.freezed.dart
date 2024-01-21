@@ -23,6 +23,7 @@ ArticleListViewParams _$ArticleListViewParamsFromJson(
 mixin _$ArticleListViewParams {
   SortOption get sortOption => throw _privateConstructorUsedError;
   List<ArticleContentModel> get articles => throw _privateConstructorUsedError;
+  String? get searchKeyword => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,10 @@ abstract class $ArticleListViewParamsCopyWith<$Res> {
           $Res Function(ArticleListViewParams) then) =
       _$ArticleListViewParamsCopyWithImpl<$Res, ArticleListViewParams>;
   @useResult
-  $Res call({SortOption sortOption, List<ArticleContentModel> articles});
+  $Res call(
+      {SortOption sortOption,
+      List<ArticleContentModel> articles,
+      String? searchKeyword});
 }
 
 /// @nodoc
@@ -55,6 +59,7 @@ class _$ArticleListViewParamsCopyWithImpl<$Res,
   $Res call({
     Object? sortOption = null,
     Object? articles = null,
+    Object? searchKeyword = freezed,
   }) {
     return _then(_value.copyWith(
       sortOption: null == sortOption
@@ -65,6 +70,10 @@ class _$ArticleListViewParamsCopyWithImpl<$Res,
           ? _value.articles
           : articles // ignore: cast_nullable_to_non_nullable
               as List<ArticleContentModel>,
+      searchKeyword: freezed == searchKeyword
+          ? _value.searchKeyword
+          : searchKeyword // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -78,7 +87,10 @@ abstract class _$$ArticleListViewParamsImplCopyWith<$Res>
       __$$ArticleListViewParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SortOption sortOption, List<ArticleContentModel> articles});
+  $Res call(
+      {SortOption sortOption,
+      List<ArticleContentModel> articles,
+      String? searchKeyword});
 }
 
 /// @nodoc
@@ -95,6 +107,7 @@ class __$$ArticleListViewParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? sortOption = null,
     Object? articles = null,
+    Object? searchKeyword = freezed,
   }) {
     return _then(_$ArticleListViewParamsImpl(
       sortOption: null == sortOption
@@ -105,6 +118,10 @@ class __$$ArticleListViewParamsImplCopyWithImpl<$Res>
           ? _value._articles
           : articles // ignore: cast_nullable_to_non_nullable
               as List<ArticleContentModel>,
+      searchKeyword: freezed == searchKeyword
+          ? _value.searchKeyword
+          : searchKeyword // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -114,7 +131,8 @@ class __$$ArticleListViewParamsImplCopyWithImpl<$Res>
 class _$ArticleListViewParamsImpl implements _ArticleListViewParams {
   _$ArticleListViewParamsImpl(
       {this.sortOption = SortOption.MOST_VIEWS,
-      final List<ArticleContentModel> articles = const []})
+      final List<ArticleContentModel> articles = const [],
+      this.searchKeyword})
       : _articles = articles;
 
   factory _$ArticleListViewParamsImpl.fromJson(Map<String, dynamic> json) =>
@@ -133,8 +151,11 @@ class _$ArticleListViewParamsImpl implements _ArticleListViewParams {
   }
 
   @override
+  final String? searchKeyword;
+
+  @override
   String toString() {
-    return 'ArticleListViewParams(sortOption: $sortOption, articles: $articles)';
+    return 'ArticleListViewParams(sortOption: $sortOption, articles: $articles, searchKeyword: $searchKeyword)';
   }
 
   @override
@@ -144,13 +165,15 @@ class _$ArticleListViewParamsImpl implements _ArticleListViewParams {
             other is _$ArticleListViewParamsImpl &&
             (identical(other.sortOption, sortOption) ||
                 other.sortOption == sortOption) &&
-            const DeepCollectionEquality().equals(other._articles, _articles));
+            const DeepCollectionEquality().equals(other._articles, _articles) &&
+            (identical(other.searchKeyword, searchKeyword) ||
+                other.searchKeyword == searchKeyword));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, sortOption, const DeepCollectionEquality().hash(_articles));
+  int get hashCode => Object.hash(runtimeType, sortOption,
+      const DeepCollectionEquality().hash(_articles), searchKeyword);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +193,8 @@ class _$ArticleListViewParamsImpl implements _ArticleListViewParams {
 abstract class _ArticleListViewParams implements ArticleListViewParams {
   factory _ArticleListViewParams(
       {final SortOption sortOption,
-      final List<ArticleContentModel> articles}) = _$ArticleListViewParamsImpl;
+      final List<ArticleContentModel> articles,
+      final String? searchKeyword}) = _$ArticleListViewParamsImpl;
 
   factory _ArticleListViewParams.fromJson(Map<String, dynamic> json) =
       _$ArticleListViewParamsImpl.fromJson;
@@ -179,6 +203,8 @@ abstract class _ArticleListViewParams implements ArticleListViewParams {
   SortOption get sortOption;
   @override
   List<ArticleContentModel> get articles;
+  @override
+  String? get searchKeyword;
   @override
   @JsonKey(ignore: true)
   _$$ArticleListViewParamsImplCopyWith<_$ArticleListViewParamsImpl>
