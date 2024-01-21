@@ -11,6 +11,7 @@ class ArticleListViewParams with _$ArticleListViewParams {
 	factory ArticleListViewParams({
     @Default(SortOption.MOST_VIEWS) SortOption sortOption,
     @Default([]) List<ArticleContentModel> articles,
+    String? searchKeyword,
 }) = _ArticleListViewParams;
 
 	factory ArticleListViewParams.fromJson(Map<String, dynamic> json) => _$ArticleListViewParamsFromJson(json);

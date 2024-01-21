@@ -21,26 +21,30 @@ class ArticleListView extends StatelessWidget {
       appBar: AppBar(
         title: Text(titleFromSortOption(viewModel.sortOption)),
       ),
-      body: ListView.separated(
-        itemCount: viewModel.state.data!.length,
-        itemBuilder: (_, index) {
-          final article = viewModel.state.data![index];
-          return ArticleListCard(
-            article: article,
-            onTap: () => context.push(
-              ArticleDetailView.path,
-              extra: article,
+      body: viewModel.state.isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : ListView.separated(
+              itemCount: viewModel.state.data!.length,
+              itemBuilder: (_, index) {
+                final article = viewModel.state.data![index];
+                return ArticleListCard(
+                  article: article,
+                  onTap: () => context.push(
+                    ArticleDetailView.path,
+                    extra: article,
+                  ),
+                );
+              },
+              separatorBuilder: (_, __) => Divider(
+                color: Theme.of(context).colorScheme.secondary,
+                height: 0,
+                thickness: 0,
+                indent: 16.w,
+                endIndent: 16.w,
+              ),
             ),
-          );
-        },
-        separatorBuilder: (_, __) => Divider(
-          color: Theme.of(context).colorScheme.secondary,
-          height: 0,
-          thickness: 0,
-          indent: 16.w,
-          endIndent: 16.w,
-        ),
-      ),
     );
   }
 }

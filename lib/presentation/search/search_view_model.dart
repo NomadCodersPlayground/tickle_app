@@ -1,28 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tech_blog_search_app/domain/model/article_content_model.dart';
-import 'package:tech_blog_search_app/domain/model/article_request_params_model.dart';
-import 'package:tech_blog_search_app/domain/repository/article_repository.dart';
-import 'package:tech_blog_search_app/utils/fetch/fetch_state.dart';
+import 'package:tech_blog_search_app/utils/constants.dart';
 
 @injectable
 class SearchViewModel extends ChangeNotifier {
-  final ArticleRepository repository;
-  SearchViewModel({required this.repository});
-
   String? searchKeyword;
-  FetchState<List<ArticleContentModel>> fetchState = FetchState();
+  final Box<List<String>> stringListBox = Hive.box(stringListKey);
 
-  void onTextChanged(String value) {
-    searchKeyword = value;
+  void setSearchKeyword(String value) => searchKeyword = value;
+
+  List<String> get storedSearchKeywordList => stringListBox.get(
+        searchKeywordListKey,
+        defaultValue: [],
+      )!;
+
+  Future<void> storeSearchKeyword() async {
+    final contained = storedSearchKeywordList.contains(searchKeyword);
+    final newList = [
+      searchKeyword!,
+      ...contained
+          ? storedSearchKeywordList.where((e) => e != searchKeyword)
+          : storedSearchKeywordList,
+    ];
+    await stringListBox.put(
+      searchKeywordListKey,
+      newList,
+    );
+    notifyListeners();
   }
 
-  Future<void> fetchArticles() async {
-    try {
-      final response = await repository.retrieve(
-        params: ArticleRequestParamsModel(keywords: searchKeyword),
-      );
-      fetchState = fetchState.copyWith(data: response.content);
-    } catch (e) {}
+  Future<void> deleteSearchKeyword(String keyword) async {
+    await stringListBox.put(
+      searchKeywordListKey,
+      storedSearchKeywordList.where((e) => e != keyword).toList(),
+    );
+    notifyListeners();
+  }
+
+  Future<void> clearSearchKeyword() async {
+    await stringListBox.delete(searchKeywordListKey);
+    notifyListeners();
   }
 }
