@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 import 'package:tech_blog_search_app/domain/model/article_request_params_model.dart';
 import 'package:tech_blog_search_app/domain/model/article_retrieve_response_model.dart';
@@ -15,4 +14,7 @@ abstract class ArticleApi {
   Future<ArticleRetrieveResponseModel> retrieve({
     @Queries() required ArticleRequestParamsModel params,
   });
+  
+  @POST("/api/v1/articles/{articleId}/views/increase")
+  Future<void> increaseViewCount({@Path("articleId") required int articleId});
 }

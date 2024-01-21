@@ -34,7 +34,7 @@ class MainView extends StatelessWidget {
               child: SafeArea(
                 child: Column(
                   children: [
-                    BannerHorizontalList(
+                    const BannerHorizontalList(
                       itemCount: 5,
                     ),
                     PopularArticleHorizontalList(

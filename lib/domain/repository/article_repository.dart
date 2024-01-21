@@ -5,4 +5,6 @@ abstract interface class ArticleRepository {
   Future<ArticleRetrieveResponseModel> retrieve({
     required ArticleRequestParamsModel params,
   });
+
+  Future<void> increaseViewCount({required int articleId});
 }
