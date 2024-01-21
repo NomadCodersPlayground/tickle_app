@@ -16,4 +16,9 @@ class ArticleRepositoryImpl implements ArticleRepository {
   }) {
     return api.retrieve(params: params);
   }
+
+  @override
+  Future<void> increaseViewCount({required int articleId}) {
+    return api.increaseViewCount(articleId: articleId);
+  }
 }
