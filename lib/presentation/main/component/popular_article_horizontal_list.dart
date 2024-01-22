@@ -23,16 +23,12 @@ class PopularArticleHorizontalList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(
-            left: 16.w,
-            right: 16.w,
-            bottom: 12.w,
-          ),
-          child: Row(
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _title(),
@@ -47,28 +43,28 @@ class PopularArticleHorizontalList extends StatelessWidget {
               ),
             ],
           ),
-        ),
-        Container(
-          height: 172.w,
-          margin: margin ?? EdgeInsets.only(bottom: 24.w),
-          child: ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, index) {
-              final article = articles[index];
-              return PopularArticleListCard(
-                article: article,
-                onTap: () => context.push(
-                  ArticleDetailView.path,
-                  extra: article,
-                ),
-              );
-            },
-            separatorBuilder: (_, __) => SizedBox(width: 16.w),
-            itemCount: articles.length,
+          SizedBox(height: 12.w),
+          Container(
+            height: 172.w,
+            margin: margin ?? EdgeInsets.only(bottom: 24.w),
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (_, index) {
+                final article = articles[index];
+                return PopularArticleListCard(
+                  article: article,
+                  onTap: () => context.push(
+                    ArticleDetailView.path,
+                    extra: article,
+                  ),
+                );
+              },
+              separatorBuilder: (_, __) => SizedBox(width: 16.w),
+              itemCount: articles.length,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

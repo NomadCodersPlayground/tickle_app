@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:tech_blog_search_app/presentation/article_detail/article_detail_view.dart';
+import 'package:tech_blog_search_app/utils/skeletons.dart';
 import 'package:tech_blog_search_app/utils/sort_option.dart';
 import 'package:tech_blog_search_app/presentation/article_list/article_list_view_model.dart';
 import 'package:tech_blog_search_app/presentation/article_list/component/article_list_card.dart';
@@ -22,9 +23,7 @@ class ArticleListView extends StatelessWidget {
         title: Text(titleFromSortOption(viewModel.sortOption)),
       ),
       body: viewModel.state.isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
+          ? const ArticleListViewSkeleton()
           : ListView.separated(
               itemCount: viewModel.state.data!.length,
               itemBuilder: (_, index) {

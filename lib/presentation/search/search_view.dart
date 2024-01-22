@@ -25,7 +25,6 @@ class SearchView extends StatelessWidget {
           onChanged: viewModel.setSearchKeyword,
           onSubmitted: (value) {
             if (value.isEmpty) return;
-
             viewModel.storeSearchKeyword();
             context.push(
               ArticleListView.path,
@@ -55,9 +54,7 @@ class SearchView extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SearchKeywordClearButton(
-                        onTap: viewModel.clearSearchKeyword,
-                      ),
+                      SearchKeywordClearButton(onTap: viewModel.clearSearchKeyword),
                     ],
                   ),
                   SizedBox(height: 12.w),
@@ -79,8 +76,7 @@ class SearchView extends StatelessWidget {
                               ),
                             );
                           },
-                          onDelete: () =>
-                              viewModel.deleteSearchKeyword(keyword),
+                          onDelete: () => viewModel.deleteSearchKeyword(keyword),
                         ),
                       )
                       .toList(),

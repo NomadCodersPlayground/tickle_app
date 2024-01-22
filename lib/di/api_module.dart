@@ -16,7 +16,7 @@ abstract class ApiModule {
   @Named("baseUrl")
   String get baseUrl =>
       "https://4eb40aa8-ff9f-44ce-b48d-a8a17c86da7c.mock.pstmn.io";
-
+      //"http://219.250.21.9:3380";
   @singleton
   ArticleApi articleApi(
     @Named("articleDio") Dio dio, {

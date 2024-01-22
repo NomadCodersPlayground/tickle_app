@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_blog_search_app/di/di_setup.dart';
 import 'package:tech_blog_search_app/hive/init_hive.dart';
+import 'package:tech_blog_search_app/router/router_config.dart';
 import 'package:tech_blog_search_app/ui/ui_theme.dart';
-import 'package:tech_blog_search_app/utils/router/router_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
