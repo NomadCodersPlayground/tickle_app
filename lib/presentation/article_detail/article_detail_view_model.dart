@@ -4,17 +4,20 @@ import 'package:tech_blog_search_app/domain/model/article_content_model.dart';
 
 @injectable
 class ArticleDetailViewModel {
-  final ArticleContentModel article;
-  final ArticleApi api;
+  final ArticleContentModel _article;
+  final ArticleApi _api;
 
   ArticleDetailViewModel({
-    required this.api,
-    @factoryParam required this.article,
-  }) {
+    required ArticleApi api,
+    @factoryParam required ArticleContentModel article,
+  })  : _api = api,
+        _article = article {
     _increaseViewCount();
   }
 
+  ArticleContentModel get article => _article;
+
   Future<void> _increaseViewCount() async {
-    await api.increaseViewCount(articleId: article.id);
+    await _api.increaseViewCount(articleId: _article.id);
   }
 }

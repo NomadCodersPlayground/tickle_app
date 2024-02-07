@@ -18,7 +18,9 @@ final GoRouter routerConfig = GoRouter(
     GoRoute(
       path: MainView.path,
       builder: (_, __) => ChangeNotifierProvider(
-          create: (_) => getIt<MainViewModel>(), child: const MainView()),
+        create: (_) => getIt<MainViewModel>(),
+        child: const MainView(),
+      ),
     ),
     GoRoute(
       path: SearchView.path,
@@ -31,8 +33,7 @@ final GoRouter routerConfig = GoRouter(
       path: ArticleListView.path,
       builder: (_, state) => ChangeNotifierProvider(
         create: (_) => getIt<ArticleListViewModel>(
-          param1:
-              state.extra != null ? state.extra as ArticleListViewParams : null,
+          param1: state.extra != null ? state.extra as ArticleListViewParams : null,
         ),
         builder: (_, __) => const ArticleListView(),
       ),

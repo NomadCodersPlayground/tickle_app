@@ -3,8 +3,6 @@ import 'package:dio/dio.dart';
 class ArticleInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    print(options.uri);
-    print(options.queryParameters);
 
     super.onRequest(options, handler);
   }

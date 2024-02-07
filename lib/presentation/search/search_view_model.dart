@@ -5,25 +5,27 @@ import 'package:tech_blog_search_app/utils/constants.dart';
 
 @injectable
 class SearchViewModel extends ChangeNotifier {
-  String? searchKeyword;
-  final Box<List<String>> stringListBox = Hive.box(stringListKey);
+  String? _searchKeyword;
+  final Box<List<String>> _stringListBox = Hive.box(stringListKey);
 
-  void setSearchKeyword(String value) => searchKeyword = value;
+  String? get searchKeyword => _searchKeyword;
 
-  List<String> get storedSearchKeywordList => stringListBox.get(
+  void setSearchKeyword(String value) => _searchKeyword = value;
+
+  List<String> get storedSearchKeywordList => _stringListBox.get(
         searchKeywordListKey,
         defaultValue: [],
       )!;
 
   Future<void> storeSearchKeyword() async {
-    final contained = storedSearchKeywordList.contains(searchKeyword);
+    final contained = storedSearchKeywordList.contains(_searchKeyword);
     final newList = [
-      searchKeyword!,
+      _searchKeyword!,
       ...contained
-          ? storedSearchKeywordList.where((e) => e != searchKeyword)
+          ? storedSearchKeywordList.where((e) => e != _searchKeyword)
           : storedSearchKeywordList,
     ];
-    await stringListBox.put(
+    await _stringListBox.put(
       searchKeywordListKey,
       newList,
     );
@@ -31,7 +33,7 @@ class SearchViewModel extends ChangeNotifier {
   }
 
   Future<void> deleteSearchKeyword(String keyword) async {
-    await stringListBox.put(
+    await _stringListBox.put(
       searchKeywordListKey,
       storedSearchKeywordList.where((e) => e != keyword).toList(),
     );
@@ -39,7 +41,7 @@ class SearchViewModel extends ChangeNotifier {
   }
 
   Future<void> clearSearchKeyword() async {
-    await stringListBox.delete(searchKeywordListKey);
+    await _stringListBox.delete(searchKeywordListKey);
     notifyListeners();
   }
 }

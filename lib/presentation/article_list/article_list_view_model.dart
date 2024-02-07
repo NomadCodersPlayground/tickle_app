@@ -9,17 +9,21 @@ import 'package:tech_blog_search_app/utils/fetch_state.dart';
 
 @injectable
 class ArticleListViewModel extends ChangeNotifier {
-  final ArticleRepository repository;
-  late final SortOption sortOption;
-  FetchState<List<ArticleContentModel>> state = FetchState();
+  final ArticleRepository _repository;
+  late final SortOption _sortOption;
+  FetchState<List<ArticleContentModel>> _state = FetchState();
+
+  SortOption get sortOption => _sortOption;
+
+  FetchState<List<ArticleContentModel>> get state => _state;
 
   ArticleListViewModel({
-    required this.repository,
+    required ArticleRepository repository,
     @factoryParam required ArticleListViewParams? params,
-  }) {
-    sortOption = params?.sortOption ?? SortOption.MOST_VIEWS;
+  }) : _repository = repository {
+    _sortOption = params?.sortOption ?? SortOption.MOST_VIEWS;
     if (params?.articles.isNotEmpty ?? false) {
-      state = state.copyWith(data: params!.articles);
+      _state = _state.copyWith(data: params!.articles);
       return;
     }
     fetchArticles(keyword: params?.searchKeyword);
@@ -27,12 +31,12 @@ class ArticleListViewModel extends ChangeNotifier {
 
   Future<void> fetchArticles({String? keyword}) async {
     try {
-      state = state.copyWith(isLoading: true);
+      _state = _state.copyWith(isLoading: true);
       notifyListeners();
-      final response = await repository.retrieve(
+      final response = await _repository.retrieve(
         params: ArticleRequestParamsModel(keywords: keyword),
       );
-      state = state.copyWith(
+      _state = _state.copyWith(
         data: response.content,
         isLoading: false,
       );

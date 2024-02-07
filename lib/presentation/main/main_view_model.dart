@@ -8,9 +8,9 @@ import 'package:tech_blog_search_app/utils/fetch_state.dart';
 
 @singleton
 class MainViewModel extends ChangeNotifier {
-  final ArticleRepository repository;
+  final ArticleRepository _repository;
 
-  MainViewModel({required this.repository}) {
+  MainViewModel({required ArticleRepository repository}) : _repository = repository {
     _fetch();
   }
 
@@ -29,16 +29,16 @@ class MainViewModel extends ChangeNotifier {
     try {
       final [recent, today, weekly, monthly] = await Future.wait(
         [
-          repository.retrieve(
+          _repository.retrieve(
             params: ArticleRequestParamsModel(sortOptions: SortOption.RECENT),
           ),
-          repository.retrieve(
+          _repository.retrieve(
             params: ArticleRequestParamsModel(sortOptions: SortOption.TODAY_VIEWS),
           ),
-          repository.retrieve(
+          _repository.retrieve(
             params: ArticleRequestParamsModel(sortOptions: SortOption.WEEKLY_VIEWS),
           ),
-          repository.retrieve(
+          _repository.retrieve(
             params: ArticleRequestParamsModel(sortOptions: SortOption.MONTHLY_VIEWS),
           ),
         ],
